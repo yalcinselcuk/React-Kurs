@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- bunun default hali yukarıdan aşağı şeklindedir -->
+        <!-- Eğer ki soldan sağa açılmasını istiyorsak class içinde "dropright" da olmalı-->
+        <div class="dropdown">
+            <!-- dropdown-toggle : açılır menü olduğunu belirttik -->
+            <!--  açılır menüde bir şeyler gösterebilmek için bir attribute eklememiz gerekir. o da data-toggle'dır  -->
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Menü</button>
+
+            <!-- dropdown'ın içine değerleri eklememiz lazım. Bunu da hemen butonun altına tanımlıyoruz-->
+            <div class="dropdown-menu">
+                <!-- itemlerin hepsine genel bir başlık vermek istiyorsak aşağıdaki dropdown-header kullanılır -->
+                <div class="dropdown-header">Sepet Elemanları</div>
+                <!-- dropdown itemi olduğunu belirtmek için dropdown-item class'ını kullandık-->
+                <!-- eğer ki herhangi bir itemi disabled ya da active yapmak istiyorsak class'ının içine active & disabled yazılır-->
+                <a class="dropdown-item">Çorba</a>
+                <a class="dropdown-item">Karnıyarık</a>
+                <a class="dropdown-item">Piriç Pilavı</a>
+                <a class="dropdown-item">Salata</a>
+                <!-- eğer ki bunların arasına bir çizgi bırakmak istiyorsak aşağıdaki komut yazılır -->
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Satın Al</a>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+<!-- açılıp kapanabilmesi için jquery kütüphanesini kullanmamız lazım.onları da en altta import ediyoruz-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+</html>
