@@ -14,10 +14,10 @@ function App() {
         <Row>
           {/* xs dediğimiz = sayfamız 12 alana ayrıldığından hangi alanda olduğunu belirttik */}
           <Col xs="3">
-            <CategoryList></CategoryList>
+            <CategoryList title = "Categories Alanı"></CategoryList>
           </Col>
           <Col xs ="9">
-            <ProductList></ProductList>
+            <ProductList title = "Products Alanı"></ProductList>
           </Col>
         </Row>
       </Container>
