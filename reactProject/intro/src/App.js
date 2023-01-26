@@ -5,6 +5,9 @@ import { Container, Row, Col } from 'reactstrap';
 
 
 function App() {
+  let categoryInfo = {title:"CategoryList"};
+  let productInfo = {title:"ProductLis"};
+
   return (
     <div>
       <Container>
@@ -14,10 +17,10 @@ function App() {
         <Row>
           {/* xs dediğimiz = sayfamız 12 alana ayrıldığından hangi alanda olduğunu belirttik */}
           <Col xs="3">
-            <CategoryList title = "Categories Alanı"></CategoryList>
+            <CategoryList info = {categoryInfo}></CategoryList>
           </Col>
           <Col xs ="9">
-            <ProductList title = "Products Alanı"></ProductList>
+            <ProductList info = {productInfo}></ProductList>
           </Col>
         </Row>
       </Container>
