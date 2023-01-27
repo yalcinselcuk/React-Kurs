@@ -12,14 +12,21 @@ export default class App extends Component {
 
   changeCategory = (category) => {
     this.setState({ currentCategory: category.categoryName })
+    this.getProducts(category.id);
   };
 
   componentDidMount(){
     this.getProducts();
   }
-  getProducts = () =>{
+  getProducts = (categoryId) =>{
+
+    let url = "http://localhost:3000/products";
+    if(categoryId){//eger bu seoUrl tanimlanmissa
+      url+="?categoryId="+categoryId;
+    }
+
     //api'ye fetch uzerinden erisiyoruz
-    fetch("http://localhost:3000/products")
+    fetch(url)
     .then(response => response.json())//gelen istegi json 'a donustur
     .then(data => this.setState({products : data}));;//o istek sonucunda gelen dataları attik
     //yukaridan asagiya katmanli calisti
