@@ -4,22 +4,22 @@ import { ListGroup, ListGroupItem } from 'reactstrap'
 export default class CategoryList extends Component {
   constructor(props) {
     super(props);
-    this.state = { categories: []};
+    this.state = { categories: [] };
   }
 
   // ilk once componentler yerlesir
   //sonra render'lar calisir
 
   //component yerlestiginde calis dedik
-  componentDidMount(){
-      this.getCategories();
+  componentDidMount() {
+    this.getCategories();
   }
 
-  getCategories = () =>{
+  getCategories = () => {
     //api'ye fetch uzerinden erisiyoruz
     fetch("http://localhost:3000/categories")
-    .then(response => response.json())//gelen istegi json 'a donustur
-    .then(data => this.setState({categories : data}));;//o istek sonucunda gelen dataları attik
+      .then(response => response.json())//gelen istegi json 'a donustur
+      .then(data => this.setState({ categories: data }));;//o istek sonucunda gelen dataları attik
     //yukaridan asagiya katmanli calisti
 
   }
@@ -30,8 +30,10 @@ export default class CategoryList extends Component {
         <h1>{this.props.info.title}</h1>
         <ListGroup>
           {this.state.categories.map(category => (
-            <ListGroupItem onClick={() => this.props.changeCategory(category)} key={category.id}>
-              {category.categoryName}
+            //eger ki tiklanilan yer isimlerden biriyle uyusursa true olacak yani active ; degilse false olacak
+            <ListGroupItem active={category.categoryName === this.props.currentCategory ? true : false} 
+                onClick={() => this.props.changeCategory(category)} key={category.id}>
+                  {category.categoryName}
             </ListGroupItem>
           ))}
         </ListGroup>
