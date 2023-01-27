@@ -8,16 +8,28 @@ import React, { Component } from 'react'
 
 export default class App extends Component {
   
-  state = {currentCategory : ""};
+  state = {currentCategory : "", products : []};
 
   changeCategory = (category) => {
     this.setState({ currentCategory: category.categoryName })
   };
 
+  componentDidMount(){
+    this.getProducts();
+  }
+  getProducts = () =>{
+    //api'ye fetch uzerinden erisiyoruz
+    fetch("http://localhost:3000/products")
+    .then(response => response.json())//gelen istegi json 'a donustur
+    .then(data => this.setState({products : data}));;//o istek sonucunda gelen dataları attik
+    //yukaridan asagiya katmanli calisti
+
+  }
+
   render() {
 
-    let categoryInfo = { title: "CategoryList" };
-    let productInfo = { title: "ProductLis" };
+    let categoryInfo = { title: "Kategori Listesi" };
+    let productInfo = { title: "Ürün Listesi" };
 
     return (
       <div>
@@ -31,7 +43,7 @@ export default class App extends Component {
               <CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo}></CategoryList>
             </Col>
             <Col xs="9">
-              <ProductList currentCategory={this.state.currentCategory} info={productInfo}></ProductList>
+              <ProductList products = {this.state.products} currentCategory={this.state.currentCategory} info={productInfo}></ProductList>
             </Col>
           </Row>
         </Container>
