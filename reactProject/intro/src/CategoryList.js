@@ -4,7 +4,24 @@ import { ListGroup, ListGroupItem } from 'reactstrap'
 export default class CategoryList extends Component {
   constructor(props) {
     super(props);
-    this.state = { categories: [{ categoryId: 1, categoryName: "Beverages" }, { categoryId: 2, categoryName: "Condimets" }]};
+    this.state = { categories: []};
+  }
+
+  // ilk once componentler yerlesir
+  //sonra render'lar calisir
+
+  //component yerlestiginde calis dedik
+  componentDidMount(){
+      this.getCategories();
+  }
+
+  getCategories = () =>{
+    //api'ye fetch uzerinden erisiyoruz
+    fetch("http://localhost:3000/categories")
+    .then(response => response.json())//gelen istegi json 'a donustur
+    .then(data => this.setState({categories : data}));;//o istek sonucunda gelen dataları attik
+    //yukaridan asagiya katmanli calisti
+
   }
 
   render() {
@@ -13,7 +30,7 @@ export default class CategoryList extends Component {
         <h1>{this.props.info.title}</h1>
         <ListGroup>
           {this.state.categories.map(category => (
-            <ListGroupItem onClick={() => this.props.changeCategory(category)} key={category.categoryId}>
+            <ListGroupItem onClick={() => this.props.changeCategory(category)} key={category.id}>
               {category.categoryName}
             </ListGroupItem>
           ))}
