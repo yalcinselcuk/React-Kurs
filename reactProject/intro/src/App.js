@@ -8,7 +8,7 @@ import React, { Component } from 'react'
 
 export default class App extends Component {
   
-  state = {currentCategory : "", products : []};
+  state = {currentCategory : "", products : [], sepet : []};
 
   changeCategory = (category) => {
     this.setState({ currentCategory: category.categoryName })
@@ -32,7 +32,12 @@ export default class App extends Component {
     //yukaridan asagiya katmanli calisti
 
   }
-
+  sepeteEkle=(product)=>{
+    let yeniSepet = this.state.sepet;
+    //var itemEkle = yeniSepet.find(c => c.product.id === product.id);
+    yeniSepet.push({product : product, quantity : 1});
+    this.setState({sepet : yeniSepet});
+  }
   render() {
 
     let categoryInfo = { title: "Kategori Listesi" };
@@ -42,15 +47,17 @@ export default class App extends Component {
       <div>
         <Container>
           <Row>
-            <Navi></Navi>
+
+            <Navi sepet = {this.state.sepet}></Navi>
           </Row>
+          
           <Row>
             {/* xs dediğimiz = sayfamız 12 alana ayrıldığından hangi alanda olduğunu belirttik */}
             <Col xs="3">
               <CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo}></CategoryList>
             </Col>
             <Col xs="9">
-              <ProductList products = {this.state.products} currentCategory={this.state.currentCategory} info={productInfo}></ProductList>
+              <ProductList sepeteEkle = {this.sepeteEkle} products = {this.state.products} currentCategory={this.state.currentCategory} info={productInfo}></ProductList>
             </Col>
           </Row>
         </Container>

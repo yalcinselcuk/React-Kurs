@@ -18,8 +18,10 @@ export default class CategoryList extends Component {
   getCategories = () => {
     //api'ye fetch uzerinden erisiyoruz
     fetch("http://localhost:3000/categories")
-      .then(response => response.json())//gelen istegi json 'a donustur
-      .then(data => this.setState({ categories: data }));;//o istek sonucunda gelen dataları attik
+      // gelen istegi json 'a donustur
+      .then(response => response.json())
+      //o istek sonucunda gelen dataları attik
+      .then(data => this.setState({ categories: data }));;
     //yukaridan asagiya katmanli calisti
 
   }
@@ -31,9 +33,9 @@ export default class CategoryList extends Component {
         <ListGroup>
           {this.state.categories.map(category => (
             //eger ki tiklanilan yer isimlerden biriyle uyusursa true olacak yani active ; degilse false olacak
-            <ListGroupItem active={category.categoryName === this.props.currentCategory ? true : false} 
-                onClick={() => this.props.changeCategory(category)} key={category.id}>
-                  {category.categoryName}
+            <ListGroupItem active={category.categoryName === this.props.currentCategory ? true : false}
+              onClick={() => this.props.changeCategory(category)} key={category.id}>
+              {category.categoryName}
             </ListGroupItem>
           ))}
         </ListGroup>
