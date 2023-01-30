@@ -3,6 +3,7 @@ import Navi from "./Navi";
 import ProductList from "./ProductList";
 import { Container, Row, Col } from 'reactstrap';
 import React, { Component } from 'react'
+import alertify from "alertifyjs";
 
 
 
@@ -42,6 +43,7 @@ export default class App extends Component {
       yeniSepet.push({product : product, quantity : 1});
     }
     this.setState({sepet : yeniSepet});
+    alertify.success(product.productName + " Sepete Eklendi");
   }
   sepettenSil=(product)=>{
     let yeniSepet = this.state.sepet.filter(c => c.product.id !== product.id)
