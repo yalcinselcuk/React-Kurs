@@ -6,7 +6,7 @@ export default class SepetOzeti extends Component {
       <DropdownToggle nav caret>
         Sepetiniz
       </DropdownToggle>
-      <DropdownMenu>
+      <DropdownMenu right>
         {
           this.props.sepet.map((sepetItemi) => (
             <DropdownItem key={sepetItemi.product.id}>
