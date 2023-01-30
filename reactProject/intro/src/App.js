@@ -34,8 +34,13 @@ export default class App extends Component {
   }
   sepeteEkle=(product)=>{
     let yeniSepet = this.state.sepet;
-    //var itemEkle = yeniSepet.find(c => c.product.id === product.id);
-    yeniSepet.push({product : product, quantity : 1});
+    //tekrar edip etmediğini hesapladık
+    var itemEkle = yeniSepet.find(c => c.product.id === product.id);
+    if(itemEkle){
+      itemEkle.quantity+=1;
+    }else{
+      yeniSepet.push({product : product, quantity : 1});
+    }
     this.setState({sepet : yeniSepet});
   }
   render() {
@@ -48,16 +53,16 @@ export default class App extends Component {
         <Container>
           <Row>
 
-            <Navi sepet = {this.state.sepet}></Navi>
+            <Navi sepet = {this.state.sepet}/>
           </Row>
           
           <Row>
             {/* xs dediğimiz = sayfamız 12 alana ayrıldığından hangi alanda olduğunu belirttik */}
             <Col xs="3">
-              <CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo}></CategoryList>
+              <CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo}/>
             </Col>
             <Col xs="9">
-              <ProductList sepeteEkle = {this.sepeteEkle} products = {this.state.products} currentCategory={this.state.currentCategory} info={productInfo}></ProductList>
+              <ProductList sepeteEkle = {this.sepeteEkle} products = {this.state.products} currentCategory={this.state.currentCategory} info={productInfo}/>
             </Col>
           </Row>
         </Container>
