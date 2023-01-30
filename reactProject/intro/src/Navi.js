@@ -38,12 +38,7 @@ export default class Navi extends Component {
             <NavItem>
               <NavLink href="/components/">Components</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <SepetOzeti sepet={this.props.sepet}></SepetOzeti>
+            <SepetOzeti sepettenSil={this.props.sepettenSil} sepet={this.props.sepet}></SepetOzeti>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>
