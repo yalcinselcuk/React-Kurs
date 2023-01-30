@@ -43,6 +43,10 @@ export default class App extends Component {
     }
     this.setState({sepet : yeniSepet});
   }
+  sepettenSil=(product)=>{
+    let yeniSepet = this.state.sepet.filter(c => c.product.id !== product.id)
+    this.setState({sepet : yeniSepet})
+  }
   render() {
 
     let categoryInfo = { title: "Kategori Listesi" };
@@ -53,7 +57,7 @@ export default class App extends Component {
         <Container>
           <Row>
 
-            <Navi sepet = {this.state.sepet}/>
+            <Navi sepettenSil={this.sepettenSil} sepet = {this.state.sepet}/>
           </Row>
           
           <Row>

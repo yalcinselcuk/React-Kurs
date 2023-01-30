@@ -10,7 +10,8 @@ export default class SepetOzeti extends Component {
         {
           this.props.sepet.map((sepetItemi) => (
             <DropdownItem key={sepetItemi.product.id}>
-              {sepetItemi.product.productName}
+              <Badge color='danger' onClick={()=>this.props.sepettenSil(sepetItemi.product)}>Sil</Badge>{" "}
+              {sepetItemi.product.productName}{" "}
               <Badge color='success'>{sepetItemi.quantity}</Badge>{/*itemin yanında sayısını belirttik */}
             </DropdownItem>
           ))
