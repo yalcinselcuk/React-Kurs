@@ -7,6 +7,7 @@ import alertify from "alertifyjs";
 import { Route, Routes } from "react-router-dom";
 import NotFound from './NotFound';
 import SepetDetayı from "./SepetDetayı";
+import FormDemo1 from "./FormDemo1";
 
 
 
@@ -95,6 +96,7 @@ export default class App extends Component {
                       sepettenSil={this.sepettenSil}
                     />
                   } />
+                  <Route exact path="/form1" element={<FormDemo1/>} />
                 <Route element={<NotFound />} />{/* Routes bütün Route'ları tek tek gezdi ve hiçbiri uymazsa en sondakini çalıştırdı*/}
               </Routes>
 
