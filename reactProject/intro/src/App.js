@@ -50,7 +50,8 @@ export default class App extends Component {
   }
   sepettenSil = (product) => {
     let yeniSepet = this.state.sepet.filter(c => c.product.id !== product.id)
-    this.setState({ sepet: yeniSepet })
+    this.setState({ sepet: yeniSepet });
+    alertify.success(product.productName + " Sepetten Silindi", 2);
   }
   render() {
 
