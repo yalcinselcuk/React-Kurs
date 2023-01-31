@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table } from 'reactstrap'
+import { Button, Table } from 'reactstrap'
 
 export default class SepetDetayı extends Component {
   renderSepet() {
@@ -13,6 +13,7 @@ export default class SepetDetayı extends Component {
             <th>Birim Fiyat</th>
             <th>Stoktaki Miktar</th>
             <th>Adet</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@ export default class SepetDetayı extends Component {
               <td>{sepetItemi.product.unitPrice}</td>
               <td>{sepetItemi.product.unitsInStock}</td>
               <td>{sepetItemi.quantity}</td>
+              <td><Button color='danger' onClick={()=>this.props.sepettenSil(sepetItemi.product)}>Sil</Button></td>
             </tr>
           ))}
         </tbody>
