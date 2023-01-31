@@ -85,7 +85,15 @@ export default class App extends Component {
                       info={productInfo}
                     />
                   } /> {/*localhost direk çalışınca ProductList'in default olarak çalışmasını istiyoruz ve exact'da direk gelmesini sağlıyor */}
-                <Route exact path="/sepet" element={<SepetDetayı />} />
+                <Route 
+                exact 
+                path="/sepet" 
+                element={
+                    <SepetDetayı
+                      sepet={this.state.sepet}
+                      sepettenSil={this.sepettenSil}
+                    />
+                  } />
                 <Route element={<NotFound />} />{/* Routes bütün Route'ları tek tek gezdi ve hiçbiri uymazsa en sondakini çalıştırdı*/}
               </Routes>
 
