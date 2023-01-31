@@ -17,3 +17,5 @@ export const ikiserArtir = () => ({
     type:actionTypes.IKISER_ARTIR,
     payLoad : 2
 })
+//action'ları Reducer yapısıyla kontrol altına alırız
+//Reducer yapısı ilgili aksiyonu içerip içermediğine bakıyor
